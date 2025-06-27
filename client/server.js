@@ -1,9 +1,14 @@
 import axios from "axios";
+import express from "express";
+import cors from "cors";
 import "dotenv/config";
 
 // console.log(process.cwd());
 // console.log("CLIENTID", process.env.CLIENT_ID);
 // console.log("CLIENTSECRET", process.env.CLIENT_SECRET);
+
+const app = express();
+app.use(cors());
 
 // Get Authorization Token For Current User
 async function getToken() {
@@ -19,18 +24,24 @@ async function getToken() {
 }
 
 // Get all relevant animal info based on user input
-async function getAnimals(token) {
-  const response = await axios.get("https://api.petfinder.com/v2/animals", {
-    headers: { Authorization: `Bearer ${token}` },
-    params: { type: "dog", location: 10002 },
-  });
-  return response.data.animals;
-}
+// Required User parameters: Zip Code, Dog or Cat
+// Optional User Parameters:
+app.get("/api/animals", async (req, res) => {
+  try {
+    // Use getToken() to grab current session token
+    const token = await getToken();
+    console.log("Token", token);
+    const response = await axios.get("https://api.petfinder.com/v2/animals", {
+      headers: { Authorization: `Bearer ${token}` },
+      params: { type: "dog", location: 10002 },
+    });
+    res.json(response.data.animals);
+  } catch (error) {
+    console.error("Error fetching animals:");
+  }
+});
 
-// Use getToken() to grab current session token
-const token = await getToken();
-// Use getAnimals() to grab animal details
-const allAnimals = await getAnimals(token);
-
-console.log("Token", token);
-console.log("Response", allAnimals);
+const PORT = 4000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

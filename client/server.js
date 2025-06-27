@@ -33,7 +33,14 @@ app.get("/api/animals", async (req, res) => {
     console.log("Token", token);
     const response = await axios.get("https://api.petfinder.com/v2/animals", {
       headers: { Authorization: `Bearer ${token}` },
-      params: { type: "dog", location: 10002 },
+      params: {
+        type: req.query.type,
+        location: req.query.zipCode,
+        age: req.query.age,
+        distance: req.query.distance || 10,
+        gender: req.query.gender,
+        breed: req.query.breed,
+      },
     });
     res.json(response.data.animals);
   } catch (error) {

@@ -25,15 +25,18 @@ function App() {
     }
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:4000/api/animals", {
-        params: {
-          type,
-          zipCode,
-          age,
-          gender,
-          breed,
-        },
-      });
+      const response = await axios.get(
+        "https://pawfect-match-jvhf.onrender.com/api/animals",
+        {
+          params: {
+            type,
+            zipCode,
+            age,
+            gender,
+            breed,
+          },
+        }
+      );
       console.log(response);
       setAnimals(response.data);
     } catch (error) {

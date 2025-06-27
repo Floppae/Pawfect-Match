@@ -42,7 +42,13 @@ app.get("/api/animals", async (req, res) => {
         breed: req.query.breed,
       },
     });
-    res.json(response.data.animals);
+
+    //We only want animals with photos to appear so we filter out the animal without photos
+    const animalsWithPics = response.data.animals.filter((animal) => {
+      animal.photos && animal.photos.length > 0;
+    });
+
+    res.json(animalsWithPics);
   } catch (error) {
     console.error("Error fetching animals:");
   }

@@ -10,7 +10,7 @@ function App() {
   // zip code, dog or cat, age of pet, gender
   const [zipCode, setZipCode] = useState("");
   const [distance, setDistance] = useState(null);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("dog");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [breed, setBreed] = useState("");
@@ -20,7 +20,6 @@ function App() {
     // API calls were breaking when refreshing without zip code or type since they're required.
     // Function returns immediately if these fields are empty
     if (!zipCode || !type) {
-      alert("Please enter zip code and select a type of animal");
       return;
     }
     setLoading(true);

@@ -45,7 +45,7 @@ app.get("/api/animals", async (req, res) => {
 
     //We only want animals with photos to appear so we filter out the animal without photos
     const animalsWithPics = response.data.animals.filter((animal) => {
-      animal.photos && animal.photos.length > 0;
+      return animal.photos && animal.photos.length > 0;
     });
 
     res.json(animalsWithPics);

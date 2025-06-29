@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "./assets/logo.png"; // Make sure this path is correct
+import logo from "./logo.png";
 
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");

@@ -16,7 +16,7 @@ Deployment:
 
 🚀 Getting Started (Local Development)
 1. Clone the repo
-git clone https://github.com/smubashirova/Pawfect-Match.git
+git clone https://github.com/username/Pawfect-Match.git
 cd Pawfect-Match/client
 2. Install dependencies
 npm install

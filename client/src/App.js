@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import logo from "./assets/logo.png"; // Make sure this path is correct
 
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");
@@ -137,6 +138,7 @@ export default function App() {
       <header className="bg-white shadow sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold text-pink-600">🐾 Pawfect Match</h1>
+          <img src={logo} alt="logo" className="h-12 w-12 rounded-full border border-pink-200" />
         </div>
       </header>
 

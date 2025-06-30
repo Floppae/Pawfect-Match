@@ -4,6 +4,7 @@ import logo from "./logo.png";
 
 import Navbar from "./Navbar.js";
 import About from "./About.js";
+import Contact from "./Contact.js";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; //Required to have multiple pages
 
 function SearchForm({ onSearch }) {
@@ -185,26 +186,30 @@ export default function App() {
   return (
     <Router>
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-100 via-rose-100 to-white">
-      <header className="bg-white shadow sticky top-0 z-20">
+      {/* <header className="bg-white shadow sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold text-pink-600">🐾 Pawfect Match</h1>
           <img src={logo} alt="logo" className="h-12 w-12 rounded-full border border-pink-200" />
 
-          {/* Nav Links */}
           <nav>
             <Link to="/" className="mr-4 text-pink-600 hover:underline">
               Home
             </Link>
-            <Link to="/about" className="text-pink-600 hover:underline">
+            <Link to="/about" className="mr-4 text-pink-600 hover:underline">
               About
+            </Link>
+            <Link to="/contact" className="text-pink-600 hover:underline">
+              Contact
             </Link>
             </nav>
         </div>
-      </header>
+      </header> */}
+
+      <Navbar />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
       <Routes>
-        <Route path="/" element={
+        <Route path="/" element= {
                 <>
         <SearchForm onSearch={fetchAnimals} />
 
@@ -225,11 +230,13 @@ export default function App() {
         )}
         </> } />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       </main>
 
       <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">
-        Made with ❤️ by the Pawfect Match Team
+        {/* Made with ❤️ by the Pawfect Match Team */}
+        &copy; 2025 PawMatch. All rights reserved.
       </footer>
     </div>
     </Router>

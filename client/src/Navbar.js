@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "./logo.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -11,7 +12,10 @@ export default function Navbar() {
   return (
     <header>
       <nav>
-        <div className="logo">🐾 Pawfect Match</div>
+      <div className="logo">
+       <img src={logo} alt="Pawfect Match Logo" className="logo-img" />
+        <span className="logo-text">Pawfect Match</span>
+      </div>
 
         <ul className={`navbar ${menuOpen ? "responsive" : ""}`}>
           <li>

@@ -15,21 +15,18 @@ export default function Navbar() {
 
         <ul className={`navbar ${menuOpen ? "responsive" : ""}`}>
           <li>
-            <Link
-              to="/"
-              className={location.pathname === "/" ? "active" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)} >
               HOME
             </Link>
           </li>
           <li>
-            <Link
-              to="/about"
-              className={location.pathname === "/about" ? "active" : ""}
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/about" className={location.pathname === "/about" ? "active" : ""} onClick={() => setMenuOpen(false)}>
               ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""} onClick={() => setMenuOpen(false)}>
+              CONTACT
             </Link>
           </li>
         </ul>

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import logo from "./logo.png";
 
+import Navbar from "./Navbar.js";
+import About from "./About.js";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; //Required to have multiple pages
+
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");
   const [type, setType] = useState("dog");
@@ -111,6 +115,51 @@ function PetCard({ animal }) {
   );
 }
 
+function Home() {
+  const [animals, setAnimals] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchAnimals = async (params) => {
+    if (!params) return;
+    setLoading(true);
+    try {
+      const res = await axios.get(
+        "https://pawfect-match-jvhf.onrender.com/api/animals",
+        { params }
+      );
+      setAnimals(res.data);
+    } catch (err) {
+      console.error("Error fetching animals:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {}, []);
+
+  return (
+    <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
+      <SearchForm onSearch={fetchAnimals} />
+
+      {loading ? (
+        <div className="flex justify-center mt-12">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-pink-300 border-t-transparent"></div>
+        </div>
+      ) : (
+        <section className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+          {animals.length === 0 ? (
+            <p className="text-center col-span-full text-gray-600">
+              🥺 No pets found. Try adjusting your search.
+            </p>
+          ) : (
+            animals.map((animal) => <PetCard key={animal.id} animal={animal} />)
+          )}
+        </section>
+      )}
+    </main>
+  );
+}
+
 export default function App() {
   const [animals, setAnimals] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -134,15 +183,29 @@ export default function App() {
   useEffect(() => {}, []);
 
   return (
+    <Router>
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-100 via-rose-100 to-white">
       <header className="bg-white shadow sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold text-pink-600">🐾 Pawfect Match</h1>
           <img src={logo} alt="logo" className="h-12 w-12 rounded-full border border-pink-200" />
+
+          {/* Nav Links */}
+          <nav>
+            <Link to="/" className="mr-4 text-pink-600 hover:underline">
+              Home
+            </Link>
+            <Link to="/about" className="text-pink-600 hover:underline">
+              About
+            </Link>
+            </nav>
         </div>
       </header>
 
       <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
+      <Routes>
+        <Route path="/" element={
+                <>
         <SearchForm onSearch={fetchAnimals} />
 
         {loading ? (
@@ -160,11 +223,15 @@ export default function App() {
             )}
           </section>
         )}
+        </> } />
+        <Route path="/about" element={<About />} />
+      </Routes>
       </main>
 
       <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">
         Made with ❤️ by the Pawfect Match Team
       </footer>
     </div>
+    </Router>
   );
 }

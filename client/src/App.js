@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import logo from "./logo.png";
+// import logo from "./logo.png";
 
 import Navbar from "./Navbar.js";
 import About from "./About.js";
 import Contact from "./Contact.js";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"; //Required to have multiple pages
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Required to have multiple pages
+// Add 'Link' in brackets when using the other navbar and not the one already built
 
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");
@@ -162,26 +163,26 @@ function Home() {
 }
 
 export default function App() {
-  const [animals, setAnimals] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [animals, setAnimals] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
-  const fetchAnimals = async (params) => {
-    if (!params) return;
-    setLoading(true);
-    try {
-      const res = await axios.get(
-        "https://pawfect-match-jvhf.onrender.com/api/animals",
-        { params }
-      );
-      setAnimals(res.data);
-    } catch (err) {
-      console.error("Error fetching animals:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  // const fetchAnimals = async (params) => {
+  //   if (!params) return;
+  //   setLoading(true);
+  //   try {
+  //     const res = await axios.get(
+  //       "https://pawfect-match-jvhf.onrender.com/api/animals",
+  //       { params }
+  //     );
+  //     setAnimals(res.data);
+  //   } catch (err) {
+  //     console.error("Error fetching animals:", err);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <Router>
@@ -208,9 +209,9 @@ export default function App() {
       <Navbar />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element= {
-                <>
+          <>
         <SearchForm onSearch={fetchAnimals} />
 
         {loading ? (
@@ -231,7 +232,14 @@ export default function App() {
         </> } />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+      </Routes> */}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+
       </main>
 
       <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">

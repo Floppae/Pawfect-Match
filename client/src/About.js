@@ -2,10 +2,6 @@ import React from 'react';
 
 function About() {
   return (
-    // <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
-    //   <h1>About Pawfect Match</h1>
-    //   <p>About page</p>
-    // </main>
 
     <main classname = "min-h-screen px-4 bg-neutral-500">
       <section classname = "bg-gradient-to-br from-neutral-50 to-neutral-100 py-20">
@@ -22,7 +18,7 @@ function About() {
       </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 font-playfair">
-          <div className="bg-white p-8 rounded-lg shadow">
+        <div className="bg-white p-8 rounded-lg shadow">
             <h2 className="text-3xl mb-6 font-playfair font-bold ">
               Our Mission
             </h2>
@@ -41,7 +37,7 @@ function About() {
 
           <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-lg shadow">
-            <h3 className="text-2xl font-bold text-neutral-900 mb-4 font-display">
+            <h3 className="text-3xl font-bold text-neutral-900 mb-4 font-display">
             How It Works
             </h3>
             <p className="text-neutral-600 leading-relaxed">
@@ -54,7 +50,7 @@ function About() {
           </div>
 
           <div className="bg-white p-8 rounded-lg shadow">
-            <h3 className="text-2xl font-bold text-neutral-900 mb-4 font-display">
+            <h3 className="text-3xl font-bold text-neutral-900 mb-4 font-display">
               Our Website
             </h3>
             <div className="space-y-4">
@@ -77,6 +73,42 @@ function About() {
             </div>
           </div>
         </div>
+
+        {/* Values Section */}
+        <section className="px-6 py-12">
+          <h2 className="text-3xl text-center font-semibold font-playfair text-neutral-900">
+            Our Values
+          </h2>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white border-l-4 border-neutral-800 rounded-lg p-6">
+              <h3 className="text-xl font-semibold font-playfair text-neutral-900 mb-3">
+                Trust
+              </h3>
+              <p className="text-neutral-600 leading-relaxed">
+                We are honest about the backgrounds and needs of our pet, hoping that you can choose the one that is best for you.
+              </p>
+            </div>
+
+            <div className="bg-white border-l-4 border-neutral-800 rounded-lg p-6">
+              <h3 className="text-xl font-semibold font-playfair text-neutral-900 mb-3">
+                Compassion
+              </h3>
+              <p className="text-neutral-600 leading-relaxed">
+                We believe that every animal should be treated with care, kindness, and dignity.
+              </p>
+            </div>
+
+            <div className="bg-white border-l-4 border-neutral-800 rounded-lg p-6">
+              <h3 className="text-xl font-semibold font-playfair text-neutral-900 mb-3">
+                Hope
+              </h3>
+              <p className="text-neutral-600 leading-relaxed">
+                For every pet, you can help them start a new beginning.
+              </p>
+            </div>
+          </div>
+        </section>
 
 
 

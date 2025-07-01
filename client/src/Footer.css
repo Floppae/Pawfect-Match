@@ -19,7 +19,7 @@
 
 .footersection h2 {
     font-size: 18px;
-    font-family: 'Playfair Display', serif;
+    font-family: "Cormorant Garamond", serif;
     padding-bottom: 20px;
 }
 
@@ -37,7 +37,7 @@
     transition: color 0.3s ease;
 }
 
-.footersection li a:hover {
+.footersection.quicklinks li a:hover {
     color: white;
 }
 
@@ -45,10 +45,7 @@
     color: #afb7bd;
     line-height: 1.5;
     margin: 8px 0;
-}
-
-.footersection p:hover {
-    color: white;
+    font-size: 15px;
 }
 
 .endtext {

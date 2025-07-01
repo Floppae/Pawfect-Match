@@ -9,6 +9,18 @@ import Footer from './Footer.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Required to have multiple pages
 // Add 'Link' in brackets when using the other navbar and not the one already built
 
+<section className="text-center py-16 bg-gradient-to-r from-pink-200 via-rose-100 to-white">
+  <h1 className="text-4xl sm:text-5xl font-extrabold text-pink-600 mb-4">
+    🐾 Find Your New Best Friend
+  </h1>
+  <p className="text-lg sm:text-xl text-gray-700 mb-6">
+    Browse pets for adoption near you. Just one paw away! 🐶🐱
+  </p>
+  <a href="#search" className="inline-block bg-pink-500 text-white py-3 px-6 rounded-full shadow hover:bg-pink-600 transition duration-300">
+    Search Now
+  </a>
+</section>
+
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");
   const [type, setType] = useState("dog");

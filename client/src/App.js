@@ -5,6 +5,7 @@ import axios from "axios";
 import Navbar from "./Navbar.js";
 import About from "./About.js";
 import Contact from "./Contact.js";
+import Footer from './Footer.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Required to have multiple pages
 // Add 'Link' in brackets when using the other navbar and not the one already built
 
@@ -206,6 +207,7 @@ export default function App() {
         </div>
       </header> */}
 
+      {/* Imported Version: */}
       <Navbar />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
@@ -242,10 +244,14 @@ export default function App() {
 
       </main>
 
-      <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">
-        {/* Made with ❤️ by the Pawfect Match Team */}
+      {/* { <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">
+        Made with ❤️ by the Pawfect Match Team
         &copy; 2025 PawMatch. All rights reserved.
-      </footer>
+      </footer> } */}
+
+      {/* Imported Version: */}
+      <Footer />
+
     </div>
     </Router>
   );

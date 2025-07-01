@@ -21,11 +21,11 @@ function About() {
       </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
-        <div className="bg-white p-8 rounded-lg shadow">
-          <h2 className="text-3xl mb-6 font-playfair font-bold ">
-            Our Mission
-          </h2>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 font-playfair">
+          <div className="bg-white p-8 rounded-lg shadow">
+            <h2 className="text-3xl mb-6 font-playfair font-bold ">
+              Our Mission
+            </h2>
           <div className="text-neutral-600 text-lg leading-relaxed font-playfair space-y-5 text-grey-50">
             <p>
             Every year, while millions of healthy pets are placed in shelters across the country, there are many potential 
@@ -37,7 +37,48 @@ function About() {
             shelters nationwide, we hope to match pets with their owners while reducing pet homelessness.
             </p>
           </div>
-      </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 rounded-lg shadow">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-4 font-display">
+            How It Works
+            </h3>
+            <p className="text-neutral-600 leading-relaxed">
+            Our smooth adoption process makes it easy and stress-free for you to find your perfect pet:
+            <li>Browse the thousands of adoptable pets available</li>
+            <li>Filter by your preference (i.e. age, trait, breed)</li>
+            <li>Find a shelter to go and meet your potential pet</li>
+            <li>Get support along the way for a successful adoption</li>
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-lg shadow">
+            <h3 className="text-2xl font-bold text-neutral-900 mb-4 font-display">
+              Our Website
+            </h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-600">Pets Available</span>
+                <span className="font-bold text-neutral-900">10,000+</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-600">Shelters</span>
+                <span className="font-bold text-neutral-900">500+</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-600">Cities</span>
+                <span className="font-bold text-neutral-900">50+</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-neutral-600">Listings Daily</span>
+                <span className="font-bold text-neutral-900">1,000+</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
 

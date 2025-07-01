@@ -222,7 +222,7 @@ export default function App() {
       {/* Imported Version: */}
       <Navbar />
 
-      <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
+      {/* <main className="flex-grow max-w-7xl mx-auto px-4 pb-16"> */}
       {/* <Routes>
         <Route path="/" element= {
           <>
@@ -254,7 +254,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      </main>
+      {/* </main> */}
 
       {/* { <footer className="bg-pink-100 text-center py-4 text-sm text-pink-700">
         Made with ❤️ by the Pawfect Match Team

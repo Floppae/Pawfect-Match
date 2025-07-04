@@ -44,7 +44,6 @@ function Contact() {
       </section>
 
       <div className="max-w-6xl mx-auto px-4 pb-16 grid lg:grid-cols-2 gap-12">
-        {/* Form Section */}
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold mb-6 text-neutral-900">Send us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -56,8 +55,7 @@ function Contact() {
                   className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
                   value={formData.firstName}
                   onChange={(e) => handleChange("firstName", e.target.value)}
-                  required
-                />
+                  required/>
               </div>
               <div>
                 <label className="block text-lg mb-2 text-neutral-700">Last Name</label>
@@ -66,8 +64,7 @@ function Contact() {
                   className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
                   value={formData.lastName}
                   onChange={(e) => handleChange("lastName", e.target.value)}
-                  required
-                />
+                  required/>
               </div>
             </div>
 
@@ -78,8 +75,7 @@ function Contact() {
                 className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
-                required
-              />
+                required/>
             </div>
 
             <div>
@@ -88,8 +84,7 @@ function Contact() {
                 className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
                 value={formData.subject}
                 onChange={(e) => handleChange("subject", e.target.value)}
-                required
-              >
+                required>
                 <option value="">Select a subject</option>
                 <option value="general">General Inquiry</option>
                 <option value="adoption">Adoption Question</option>
@@ -105,21 +100,19 @@ function Contact() {
                 rows="5"
                 className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
                 value={formData.message}
+                placeholder="Let us know how we can help..."
                 onChange={(e) => handleChange("message", e.target.value)}
-                required
-              ></textarea>
+                required></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-neutral-900 text-white py-3 rounded-md hover:bg-neutral-700 transition"
-            >
+              className="w-full bg-neutral-900 text-white py-3 rounded-md hover:bg-neutral-700 transition">
               Send Message
             </button>
           </form>
         </div>
 
-        {/* Contact Info */}
         <div className="space-y-8">
           <div className="bg-white p-8 rounded-lg shadow">
             <h3 className="text-3xl font-bold mb-4 text-neutral-900">Get in Touch</h3>
@@ -170,14 +163,15 @@ function Contact() {
       
       {showToast && (
         <div
-          className={`fixed bottom-6 right-6 px-6 py-4 bg-neutral-900 text-white rounded-md shadow-lg z-50 transition-all duration-500 ease-in-out
+          className={`fixed bottom-6 right-6 px-8 py-6 bg-neutral-900 text-white rounded-lg shadow-xl z-50 transition-all duration-500 ease-in-out
             ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
           `}
+          style={{ maxWidth: '350px' }}
         >
           <div className="flex justify-between items-start">
             <div>
-              <p className="font-semibold">Message Sent</p>
-              <p className="text-sm text-neutral-300">
+              <p className="font-semibold text-lg">Message Sent</p>
+              <p className="text-base text-neutral-300">
                 Thanks for reaching out. We’ll get back to you soon.
               </p>
             </div>
@@ -186,7 +180,7 @@ function Contact() {
                 setVisible(false);
                 setTimeout(() => setShowToast(false), 500);
               }}
-              className="ml-4 text-neutral-400 hover:text-white transition"
+              className="ml-6 text-2xl text-neutral-400 hover:text-white transition leading-none"
               aria-label="Dismiss message"
             >
               &times;

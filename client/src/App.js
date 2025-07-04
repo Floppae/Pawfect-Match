@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import logo from "./logo.png";
+import ScrollToTop from "./ScrollToTop.js";
 
 import Navbar from "./Navbar.js";
 import About from "./About.js";
@@ -199,6 +200,7 @@ export default function App() {
 
   return (
     <Router>
+    <ScrollToTop />
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-100 via-rose-100 to-white">
       {/* <header className="bg-white shadow sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">

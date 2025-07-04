@@ -72,7 +72,7 @@ function About() {
         </div>
 
         {/* Values Section */}
-        <section className="px-1 py-10">
+        <section className="px-1 py-4">
           <h2 className="text-3xl text-center font-semibold font-playfair text-neutral-900"> Our Values </h2>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">

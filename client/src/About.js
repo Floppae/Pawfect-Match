@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function About() {
   return (
 
-    <main className = "min-h-screen px-4 bg-[#f5ebe0] font-playfair">
+    <main className = "min-h-screen px-4 bg-[#f5ebe0] font-playfair relative">
       <section classname = "w-full bg-gradient-to-br from-neutral-50 to-neutral-100 py-20">
       <div className="max-w-6xl mx-auto px-5 text-center">
           <h1 className="text-5xl font-bold mb-6 pt-10">
             About The Pawfect Match
           </h1>
-          <p className="text-xl px-20 text-neutral-00 text-black leading-relaxed">
+          <p className="text-xl px-20 text-neutral-700 text-black leading-relaxed">
           <i>The Pawfect Match</i>, or <i>PawMatch</i> for short, is a platform that allows individuals like you 
           to connect with pets that are looking for a perfect home. Our mission is to use technology 
           to make this process easier and accessible to all.

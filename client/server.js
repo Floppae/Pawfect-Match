@@ -41,6 +41,7 @@ app.get("/api/animals", async (req, res) => {
         gender: req.query.gender,
         breed: req.query.breed,
       },
+      timeout: 15000, //15 second timeout
     });
 
     //We only want animals with photos to appear so we filter out the animal without photos
@@ -50,7 +51,9 @@ app.get("/api/animals", async (req, res) => {
 
     res.json(animalsWithPics);
   } catch (error) {
+    // If the get request times out after 15 seconds an empty array is returned and "no animals found" is displayed
     console.error("Error fetching animals:");
+    res.json([]);
   }
 });
 

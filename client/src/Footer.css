@@ -18,8 +18,8 @@
 }
 
 .footersection h2 {
-    font-size: 18px;
-    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    /* font-family: "Cormorant Garamond", serif; */
     padding-bottom: 20px;
 }
 
@@ -35,6 +35,7 @@
     color: #afb7bd;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 17px;
 }
 
 .footersection.quicklinks li a:hover {
@@ -45,12 +46,12 @@
     color: #afb7bd;
     line-height: 1.5;
     margin: 8px 0;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .endtext {
     border-top: 1px solid hsl(0, 0%, 37%); 
     padding-top: 30px; 
     text-align: center; 
-    font-size: 13px;
+    font-size: 14px;
 }

@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="bg-neutral-900 text-white py-10 px-6 font-playfair">
       <div className="footercontainer">
         <div className="footercontent">
           <div className="footersection">

@@ -109,7 +109,7 @@ function PetCard({ animal }) {
           rounded-t-3xl"//w-full h-54
         />
       )}
-      ///////////////
+      
       <div className="flex flex-col flex-grow p-6">
         <h2 className="font-playfair text-2xl font-semibold text-[#4B3B29] mb-2">
           {animal.name}

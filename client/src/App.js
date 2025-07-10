@@ -162,7 +162,9 @@ function Home() {
             Find Your Pawfect Match
           </h1>
           <p className="text-lg sm:text-xl mb-6">
-            Discover lovable pets ready for adoption near you.
+          Connect with adoptable pets from shelters nationwide. 
+          Every pet deserves a loving home, and every family deserves 
+          the perfect companion.
           </p>
           <a
             href="#search"

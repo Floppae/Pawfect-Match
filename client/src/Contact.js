@@ -90,6 +90,7 @@ function Contact() {
                 <option value="adoption">Adoption Question</option>
                 <option value="shelter">Shelter Partnership</option>
                 <option value="technical">Technical Support</option>
+                <option value="volunteer">Volunteer</option>
                 <option value="other">Other</option>
               </select>
             </div>

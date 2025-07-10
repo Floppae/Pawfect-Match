@@ -81,6 +81,9 @@ function SearchForm({ onSearch }) {
   );
 }
 
+
+/*this piece of code has been change by walter issue: pet picture did not fit well ::::  WALTER
+
 function PetCard({ animal }) {
   const photo = animal?.photos?.[0]?.medium;
   return (
@@ -92,6 +95,21 @@ function PetCard({ animal }) {
           className="w-full h-52 object-cover rounded-t-3xl"
         />
       )}
+      *////// this code below is to make pet images fit and it is enclosed by slash sign 
+  function PetCard({ animal }) {
+  const photo = animal?.photos?.[0]?.medium;
+  return (
+    <article className="w-80 bg-white border border-gray-200 rounded-3xl shadow-md hover:scale-105 transition duration-300 overflow-hidden flex flex-col h-full">
+
+      {photo && (
+        <img
+          src={photo}
+          alt={animal.name}
+          className="w-full h-60 object-cover
+          rounded-t-3xl"//w-full h-54
+        />
+      )}
+      ///////////////
       <div className="flex flex-col flex-grow p-6">
         <h2 className="font-playfair text-2xl font-semibold text-[#4B3B29] mb-2">
           {animal.name}

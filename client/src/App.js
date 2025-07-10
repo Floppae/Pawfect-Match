@@ -10,17 +10,6 @@ import Footer from './Footer.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //Required to have multiple pages
 // Add 'Link' in brackets when using the other navbar and not the one already built
 
-<section className="text-center py-16 bg-gradient-to-r from-pink-200 via-rose-100 to-white">
-  <h1 className="text-4xl sm:text-5xl font-extrabold text-pink-600 mb-4">
-    🐾 Find Your New Best Friend
-  </h1>
-  <p className="text-lg sm:text-xl text-gray-700 mb-6">
-    Browse pets for adoption near you. Just one paw away! 🐶🐱
-  </p>
-  <a href="#search" className="inline-block bg-pink-500 text-white py-3 px-6 rounded-full shadow hover:bg-pink-600 transition duration-300">
-    Search Now
-  </a>
-</section>
 
 function SearchForm({ onSearch }) {
   const [zipCode, setZipCode] = useState("");
@@ -38,17 +27,17 @@ function SearchForm({ onSearch }) {
   return (
     <form
       onSubmit={submit}
-      className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 p-4 bg-pink-50 rounded-lg shadow-md"
+      className="mt-10 p-8 bg-white rounded-lg shadow-lg font-playfair grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
     >
       <input
-        className="input"
+        className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
         placeholder="🐾 Zip Code *"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
         required
       />
       <select
-        className="input"
+        className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
         value={type}
         onChange={(e) => setType(e.target.value)}
         required
@@ -57,7 +46,7 @@ function SearchForm({ onSearch }) {
         <option value="cat">🐱 Cat</option>
       </select>
       <select
-        className="input"
+        className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
         value={age}
         onChange={(e) => setAge(e.target.value)}
       >
@@ -68,7 +57,7 @@ function SearchForm({ onSearch }) {
         <option value="senior">👴 Senior</option>
       </select>
       <select
-        className="input"
+        className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
         value={gender}
         onChange={(e) => setGender(e.target.value)}
       >
@@ -77,16 +66,16 @@ function SearchForm({ onSearch }) {
         <option value="female">♀️ Female</option>
       </select>
       <input
-        className="input"
+        className="w-full p-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-600"
         placeholder="🦴 Breed (optional)"
         value={breed}
         onChange={(e) => setBreed(e.target.value)}
       />
       <button
         type="submit"
-        className="btn bg-pink-400 hover:bg-pink-500 text-white"
+        className="w-full bg-neutral-900 hover:bg-neutral-700 text-white py-3 rounded-md transition"
       >
-        🔍 Search
+        Search
       </button>
     </form>
   );
@@ -95,37 +84,40 @@ function SearchForm({ onSearch }) {
 function PetCard({ animal }) {
   const photo = animal?.photos?.[0]?.medium;
   return (
-    <article className="rounded-3xl shadow-lg bg-white overflow-hidden transform hover:scale-105 hover:shadow-xl transition duration-200">
+    <article className="bg-white border border-gray-300 rounded-3xl shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 overflow-hidden flex flex-col h-full">
       {photo && (
         <img
           src={photo}
           alt={animal.name}
-          className="w-full h-48 object-cover rounded-t-3xl"
+          className="w-full h-52 object-cover rounded-t-3xl"
         />
       )}
-      <div className="p-4">
-        <h2 className="text-lg font-semibold text-pink-600 mb-1">
-          🐾 {animal.name}
+      <div className="flex flex-col flex-grow p-6">
+        <h2 className="font-playfair text-2xl font-semibold text-[#4B3B29] mb-2">
+          {animal.name}
         </h2>
-        <p className="text-sm text-gray-700 mb-2">
+        <p className="text-gray-700 mb-1 text-sm">
           {animal.breeds.primary} • {animal.age} • {animal.gender}
         </p>
-        <p className="text-xs text-gray-500 mb-1">
+        <p className="text-gray-500 text-xs mb-3 pt-1">
           📍 {animal.contact.address.city}, {animal.contact.address.state}
         </p>
         {animal.distance && (
-          <p className="text-xs text-gray-500 mb-4">
+          <p className="text-gray-500 text-xs mb-4">
             🚗 {animal.distance.toFixed(1)} miles away
           </p>
         )}
-        <a
-          href={animal.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block text-center w-full btn bg-yellow-400 hover:bg-yellow-500 text-white"
-        >
-          View on Petfinder 💖
-        </a>
+
+        <div className="mt-auto">
+          <a
+            href={animal.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center py-3 bg-neutral-900 text-white rounded-lg hover:bg-gray-800 transition"
+          >
+            View on Petfinder
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -154,24 +146,56 @@ function Home() {
   useEffect(() => {}, []);
 
   return (
-    <main className="flex-grow max-w-7xl mx-auto px-4 pb-16">
-      <SearchForm onSearch={fetchAnimals} />
-
-      {loading ? (
-        <div className="flex justify-center mt-12">
-          <div className="animate-spin rounded-full h-16 w-16 border-4 border-pink-300 border-t-transparent"></div>
+    <main className="min-h-screen bg-[#f5ebe0] font-playfair">
+      <section className="relative w-full min-h-[80vh] flex items-center justify-center text-center font-playfair">
+        <div className="absolute inset-0">
+          <img
+            src="https://www.census.gov/newsroom/stories/pet-day/_jcr_content/root/responsivegrid/responsivegrid_1749353263/imagecore.coreimg.jpeg/1680634248356/stories-pet3-1300x867.jpeg" // Replace with your actual image path
+            alt="Adoptable pets"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
-      ) : (
-        <section className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
-          {animals.length === 0 ? (
-            <p className="text-center col-span-full text-gray-600">
-              🥺 No pets found. Try adjusting your search.
-            </p>
+
+        <div className="relative z-10 text-white px-6 max-w-2xl">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
+            Find Your Pawfect Match
+          </h1>
+          <p className="text-lg sm:text-xl mb-6">
+            Discover lovable pets ready for adoption near you.
+          </p>
+          <a
+            href="#search"
+            className="inline-block bg-black text-white font-semibold py-3 px-6 rounded-full shadow hover:bg-neutral-700 transition"
+          >
+            Start Searching
+          </a>
+        </div>
+      </section>
+
+      <div className="px-4">
+        <div id="search" className="max-w-6xl mx-auto pb-12 scroll-mt-20">
+          <SearchForm onSearch={fetchAnimals} />
+        </div>
+
+        <div className="max-w-6xl mx-auto pb-16">
+          {loading ? (
+            <div className="flex justify-center mt-12">
+              <div className="animate-spin rounded-full h-16 w-16 border-4 border-neutral-400 border-t-transparent"></div>
+            </div>
           ) : (
-            animals.map((animal) => <PetCard key={animal.id} animal={animal} />)
+            <section className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-5">
+              {animals.length === 0 ? (
+                <p className="text-center col-span-full text-neutral-600 text-lg">
+                  No pets found. Try adjusting your search.
+                </p>
+              ) : (
+                animals.map((animal) => <PetCard key={animal.id} animal={animal} />)
+              )}
+            </section>
           )}
-        </section>
-      )}
+        </div>
+      </div>
     </main>
   );
 }
@@ -201,7 +225,7 @@ export default function App() {
   return (
     <Router>
     <ScrollToTop />
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-100 via-rose-100 to-white">
+    <div className="min-h-screen flex flex-col">
       {/* <header className="bg-white shadow sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-3xl font-bold text-pink-600">🐾 Pawfect Match</h1>

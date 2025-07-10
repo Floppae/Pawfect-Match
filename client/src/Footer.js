@@ -16,8 +16,8 @@ export default function Footer() {
             <h2>Quick Links</h2>
             <ul>
                 <li><Link to="/">Find Pets</Link></li>
+                <li><Link to="/about">About Us</Link></li>
                 <li><Link to="/contact">Volunteer</Link></li>
-                <li><Link to="/contact">Donate</Link></li>
             </ul>
           </div>
 

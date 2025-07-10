@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav>
       <div className="logo">
        <img src={logo} alt="Pawfect Match Logo" className="logo-img" />
-        <span className="logo-text">Pawfect Match</span>
+        <span className="logo-text">PawMatch</span>
       </div>
 
         <ul className={`navbar ${menuOpen ? "responsive" : ""}`}>
